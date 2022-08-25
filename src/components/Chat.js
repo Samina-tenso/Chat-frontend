@@ -4,7 +4,7 @@ import io from "socket.io-client"
 import { Link, useLocation } from "react-router-dom";
 let socket;
 
-const PORT = "http://localhost:4000"
+const PORT = "https://chatapp-ba.herokuapp.com/"
 socket = io(PORT)
 function Chat() {
     const [room, setRoom] = useState("")
