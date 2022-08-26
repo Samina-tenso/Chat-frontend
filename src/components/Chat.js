@@ -65,7 +65,7 @@ function Chat() {
                 room: room,
                 userName: userName,
                 message: currentMessage,
-                time: date.getHours() + ":" + date.getMinutes()
+                date: date.getHours() + ":" + date.getMinutes()
             }
             await socket.emit("send_message", messageData)
             messageInput.value = ""
