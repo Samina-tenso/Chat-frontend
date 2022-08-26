@@ -59,13 +59,13 @@ function Chat() {
 
     async function submitMessage(e) {
         e.preventDefault()
-        const date = new Date()
+
         if (currentMessage) {
             const messageData = {
                 room: room,
                 userName: userName,
                 message: currentMessage,
-                date: date.getHours() + ":" + date.getMinutes()
+                date: new Date().toISOString()
             }
             await socket.emit("send_message", messageData)
             messageInput.value = ""
@@ -104,7 +104,7 @@ function Chat() {
                                     <div key={m.room_ID}>
                                         <h1> {m.message}</h1>
                                         <h3> {m.userName}</h3>
-                                        <h3> {m.time}</h3>
+                                        <h3> {m.date}</h3>
 
                                     </div>
                                 );
